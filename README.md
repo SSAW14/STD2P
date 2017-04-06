@@ -1,7 +1,7 @@
 # STD2P
-source code for "STD2P: RGBD Semantic Segmentation Using Spatio-Temporal Data-Driven Pooling (CVPR2017)"
+Source code for "STD2P: RGBD Semantic Segmentation Using Spatio-Temporal Data-Driven Pooling (CVPR2017)"
 
-You can visit the project page for all the information:
+Please visit the project page for all the information:
 https://www.mpi-inf.mpg.de/departments/computer-vision-and-multimodal-computing/research/image-and-video-segmentation/rgbd-semantic-segmentation-using-spatio-temporal-data-driven-pooling/.
 
 # Intallization & External softwares
