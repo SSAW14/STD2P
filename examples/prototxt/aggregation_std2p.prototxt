@@ -1,0 +1,75 @@
+name: 'VGG16'
+
+input: 'data'
+input_dim: 11
+input_dim: 40
+input_dim: 425
+input_dim: 560
+
+input: 'correlation'
+input_dim: 11
+input_dim: 1
+input_dim: 425
+input_dim: 560
+
+input: 'target'
+input_dim: 1
+input_dim: 1
+input_dim: 1
+input_dim: 1
+
+input: 'segment_number'
+input_dim: 1
+input_dim: 1
+input_dim: 1
+input_dim: 1
+
+input: 'label_set'
+input_dim: 1
+input_dim: 1
+input_dim: 1
+input_dim: 550
+
+
+layer {
+  name: 'spatial_pooling'
+  type: 'SDDP'
+  bottom: 'data'
+  bottom: 'correlation'
+  bottom: 'target'
+  bottom: "label_set"
+  bottom: "segment_number"
+  top: 'score_region'
+  top: 'map_region'
+  sddp_param {
+# 0 for average pooling and 1 for max pooling in ratio parameter
+# change max_segments parameter to support more superpixels, and use small number to save memory and computation cost
+    engine: CAFFE max_segments: 550 ratio: 0
+  }
+}
+
+layer {
+  name: 'temporal_pooling'
+  type: 'TDDP'
+  bottom: 'score_region'
+  bottom: 'map_region'
+  top: 'score_time'
+  tddp_param {
+# 0 for average pooling and 1 for max pooling in ratio parameter
+    engine: CAFFE ratio: 0 
+  }
+}
+
+layer {
+  name: 'region_to_pixel'
+  type: 'R2P'
+  bottom: 'score_time'
+  bottom: 'correlation'
+  bottom: 'target'
+  bottom: "label_set"
+  bottom: "segment_number"
+  top: 'output'
+  r2p_param {
+    engine: CAFFE
+  }
+}

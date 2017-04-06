@@ -1,0 +1,22 @@
+net: "./prototxt/train_std2p.prototxt"
+test_iter: 5105
+# make test net, but don't invoke it from the solver itself
+test_interval: 1000000
+display: 1
+average_loss: 20
+
+
+lr_policy: "fixed"
+base_lr: 1e-14
+
+# high momentum
+momentum: 0.9
+iter_size: 10
+
+max_iter: 1000
+weight_decay: 0.0005
+snapshot: 500
+snapshot_prefix: "models/train"
+test_initialization: false
+
+solver_mode: GPU
