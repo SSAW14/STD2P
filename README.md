@@ -51,12 +51,12 @@ If our work is useful for you, please consider citing:
 
 @inproceedings{yang_cvpr17,
 
- title={STD2P: RGBD Semantic Segmentation Using Spatio-Temporal Data-Driven Pooling},
+   title={STD2P: RGBD Semantic Segmentation Using Spatio-Temporal Data-Driven Pooling},
  
- author={Yang He and Wei-Chen Chiu and Margret Keuper and Mario Fritz},
+   author={Yang He and Wei-Chen Chiu and Margret Keuper and Mario Fritz},
  
- booktitle={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+   booktitle={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
  
- year={2017}
+   year={2017}
  
 }
